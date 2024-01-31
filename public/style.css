@@ -273,10 +273,11 @@ a{color: black;}
 }
 
 .bi-youtube:hover{color: red;cursor: pointer;}
-.bi-linkedin:hover{color: rgb(52, 158, 219); cursor: pointer;}
-.bi-instagram:hover{color: rgb(228, 188, 9); cursor: pointer;}
+.bi-linkedin:hover{color: rgb(13, 121, 184); cursor: pointer;}
+.bi-instagram:hover{color: rgb(228, 9, 217); cursor: pointer;}
+.bi-github:hover{color: rgb(160, 131, 4); cursor: pointer;}
 
 .bi-youtube{transition: color 300ms; transition-timing-function: ease-in-out;}
 .bi-linkedin{transition: color 300ms; transition-timing-function: ease-in-out;}
 .bi-instagram{transition: color 300ms; transition-timing-function: ease-in-out;}
-
+.bi-github{transition: color 300ms; transition-timing-function: ease-in-out;}
