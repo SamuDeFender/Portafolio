@@ -1,0 +1,282 @@
+/* ---------------------------------------------------------- */
+/* CONFIGURACIONES GLOBALES */
+/* ---------------------------------------------------------- */
+* {box-sizing: border-box;}
+body, ul{ margin: 0  }
+body{background-color: rgb(243, 243, 243);}
+
+/* ---------------------------------------------------------- */
+/* ESTADO DE FIREBASE */
+/* ---------------------------------------------------------- */
+#load{position: fixed;float: left;background-color:rgba(40, 160, 97,25%); color:rgb(37, 37, 37); border-radius: 7px;padding: 10px; width: max-content; left: 20px; backdrop-filter: blur(2.5px);}
+#load{font-family: 'Roboto', sans-serif; font-weight: 300;}
+
+
+/* ---------------------------------------------------------- */
+/* Header de Body */
+/* ---------------------------------------------------------- */
+
+@media  screen and (max-width: 964px) {
+    #intro-text{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #introduce-sect button{
+        font-size: 5vmin;
+    }
+}
+
+
+#introduce-sect{
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    flex-wrap: wrap;
+
+    height: 100vh;
+    border-width: 10px;
+
+    align-content: center;
+}
+
+#introduce-sect h1{
+    font-family: 'Raleway', sans-serif; 
+    font-weight:900; 
+    font-size: 48px
+}
+
+#introduce-sect p{
+    font-family: 'Roboto', sans-serif;
+    font-weight:100;
+    font-size: 48px
+}
+
+#introduce-sect button{
+    font-family: 'Raleway', sans-serif; 
+    font-weight:700; 
+    
+     /* margin-inline: 10px; */
+     margin-right: 10px;
+    font-size: 24px;
+    max-height: fit-content;
+    background-color: rgb(255, 255, 255,0);
+    border-color:rgb(40, 160, 97);
+    border-radius: 7.5px;
+    border-style:solid;
+    border-width: 3px;
+    
+    padding-inline:10px;
+    padding-block: 5px;
+
+    align-self: center;
+
+    color:#28A061;
+
+    transition: background-color 100ms, color 100ms;
+    transition-timing-function: ease-in-out;
+}
+
+#introduce-sect button:hover{
+    background-color: #28A061;
+    color: white;}
+
+#img-cont{
+    background-color: rgba(165, 42, 42,0);
+    border: #28A061 10px outset;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    max-width: 400px;
+    width: 60vw;
+    
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+
+    -webkit-box-shadow: 0px 0px 34px -13px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 0px 34px -13px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 34px -13px rgba(0,0,0,0.5);
+}
+
+#img-cont .img-profile{scale: 97.5%;border-radius: 50%; height:100%; align-self: center; aspect-ratio: 1/1; object-fit: cover; object-position: center center;}
+
+
+.intro-title{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 90vw;
+    max-width: 525px;
+
+    align-self: center;
+    overflow-inline:visible;
+}
+
+.intro-title #intro-text{
+    width: 100%;
+}
+
+#intro-button {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-block: 10px;
+
+    flex-wrap: wrap;
+
+   justify-content: center;
+}
+
+#intro-button button{
+    width: 230px;
+    justify-content: center;
+    margin-block: 5px;
+}
+
+.intro-cv{
+    display: inline-flex;
+    align-items: center;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 700,
+        'GRAD' 0,
+        'opsz' 24;    
+    margin-right: 5px;
+    }
+
+#intro-subtext hr {height: 1px; background-color: rgb(54, 54, 54); width: 100%; border-style: none;}
+#intro-subtext{display:flex; flex-direction:column; width: 100%; float: inline-start ;}
+
+
+
+
+/* ---------------------------------------------------------- */
+/* Navegador */
+/* ---------------------------------------------------------- */
+#nav{
+    display: flex;
+    justify-content: center;
+
+    transform: translateY(50%);
+
+    position: sticky;
+    top: 20px;
+}
+
+#nav ul {
+    /** Propiedades contenedor ul **/
+    padding: 0;
+    margin: 0;
+
+    background-color: rgb(248, 248, 248);
+    border-radius: 10px;
+
+    /** FlexBox **/
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+    
+    /** Estilo de lista**/
+    list-style: none;
+
+    /** Formato de texto**/
+    text-align: center;
+}
+
+#nav li {padding: 10px; width: max-content; 
+    font-family: 'Roboto', 'sans serif';
+    font-weight: 300;
+
+    transition: background-color 100ms,
+                color 100ms;
+    transition-timing-function: ease-in-out;
+
+    border-radius: 10px;
+}
+
+#nav li:hover { 
+    background-color: rgb(82, 8, 68);
+    color: white;
+
+    font-weight: 300;
+}
+
+/* ---------------------------------------------------------- */
+/* Secciones de Body */
+/* ---------------------------------------------------------- */
+#bd-sections{display: flex; flex-direction: column;}
+
+#bd-sections h2{font-family: 'Roboto', 'sans serif'; font-weight: 900;}
+#bd-sections p{font-family: 'Roboto', 'sans serif';font-weight: 300;}
+
+
+.bd{
+    padding-bottom: 50px;
+    padding-top: 40px;
+    padding-inline: 10px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#him {
+    background-color: white;
+
+    border-width: 10px;
+
+    
+}
+
+#bd-sections p {margin-block: 10px; line-height: 140%; width: auto; max-width: 1000px;}
+
+
+
+/* ---------------------------------------------------------- */
+/* Footer */
+/* ---------------------------------------------------------- */
+
+
+footer h3{font-family: 'Roboto', 'sans serif'; font-weight: 500;}
+footer p{font-family: 'Roboto', 'sans serif';font-weight: 100;}
+
+footer div {
+    display: flex;
+    background-color: white;
+    max-width: 100vw;
+    flex-direction: row;
+    align-items: center;;
+    justify-content: space-between;
+}
+
+footer p, h3{ margin-inline: 40px; font-size: 12px;}
+
+
+a{color: black;}
+
+#socialnetwork{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content:center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.bi{
+    font-size: 32px;
+}
+
+.bi-youtube:hover{color: red;cursor: pointer;}
+.bi-linkedin:hover{color: rgb(52, 158, 219); cursor: pointer;}
+.bi-instagram:hover{color: rgb(228, 188, 9); cursor: pointer;}
+
+.bi-youtube{transition: color 300ms; transition-timing-function: ease-in-out;}
+.bi-linkedin{transition: color 300ms; transition-timing-function: ease-in-out;}
+.bi-instagram{transition: color 300ms; transition-timing-function: ease-in-out;}
+
