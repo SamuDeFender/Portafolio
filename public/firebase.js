@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js';
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-analytics.js";
-import { getStorage } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-analytics.js";
+//import { getStorage } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-storage.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -20,9 +20,9 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const firebase = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-const st = getStorage(app)
+const storage = getStorage(app);
 
 document.addEventListener('DOMContentLoaded', function() {
     const loadEl = document.querySelector('#load');
@@ -57,27 +57,12 @@ document.addEventListener('DOMContentLoaded', function() {
       ].filter(feature => typeof app[feature] === 'function');
       loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
 
-        // var listRef = storageRef.child('files/uid');
+        const str = app.getStorage()
+        console.debug(str)
 
-        // // Find all the prefixes and items.
-        // listRef.listAll()
-        //   .then((res) => {
-        //     res.prefixes.forEach((folderRef) => {
-        //       // All the prefixes under listRef.
-        //       // You may call listAll() recursively on them.
-        //     });
-        //     res.items.forEach((itemRef) => {
-        //       // All the items under listRef.
-        //     });
-        //   }).catch((error) => {
-        //     // Uh-oh, an error occurred!
-        //   });
-
-
-      } catch (e) {
-        console.error(e);
-        loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-      }
-    });
-
+    } catch (e) {
+      console.error(e);
+      loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+    }
+  });
 
