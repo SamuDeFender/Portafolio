@@ -25,10 +25,6 @@ body{background-color: rgb(243, 243, 243);}
 }
 
 @media  screen and (max-width: 860px) {
-    li{
-
-    }   
-
     #nav .bi{font-size: 24px; visibility: visible;}
     #nav p{visibility: hidden;}
 
@@ -80,7 +76,7 @@ body{background-color: rgb(243, 243, 243);}
 }
 
 #introduce-sect button:hover{
-    background-color: #28A061;
+    background-color: rgb(40, 160, 97);
     color: white;}
 
 #img-cont{
