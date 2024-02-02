@@ -82,19 +82,19 @@
     </header>
     
     
-        <section id="nav">
-            <nav>
-                <ul>
-                    <li><i class="bi bi-person"></i>¿Quién soy?</li>
-                    <li><i class="bi bi-journal-text" ></i>Experiencia profesional</li>
-                    <li><i class="bi bi-tools"></i>Tecnologías y herramientas</li>
-                    <li><i class="bi bi-person-workspace"></i>Proyectos/Trabajos</li>
-                    <li><i class="bi-three-dots"></i>Un poco mas a fondo...</li>
-                </ul>
-            </nav>
-        </section>
+    <section id="nav">
+        <nav>
+            <ul>
+                <li><i class="bi bi-person"></i>¿Quién soy?</li>
+                <li><i class="bi bi-journal-text" ></i>Experiencia profesional</li>
+                <li><i class="bi bi-tools"></i>Tecnologías y herramientas</li>
+                <li><i class="bi bi-person-workspace"></i>Proyectos/Trabajos</li>
+                <li><i class="bi bi-three-dots"></i>Un poco mas a fondo...</li>
+            </ul>
+        </nav>
+    </section>
 
-    <div id="bd-sections">
+    <div id="bd-sections" style="margin: 0;">
         <section id="him" class="bd">
             <div>
                 <h2 style="margin: 0;">SOBRE MI</H2>
@@ -126,36 +126,35 @@
                 <p>Actualmente estoy en <span><strong>calidad</strong></span> de egresado de Ingeniería Civil Industrial en la Universidad de Valparaíso</p>
 
             </div>
-        </section>
+        </section> 
 
-        <section style="margin: 0;" id="cv" class="bd">
+        <section id="cv" class="bd">
             <div>
-                <h2 style="margin: 0;">PROYECTOS</H2>
+                <h2 style="margin: 0;">EXPERIENCIA LABORAL</H2>
+
+                <form style="max-width: 100%; width:max-content;">
+                    <input class="in-lab" type="radio" id="all" name="work-exp" label="Mostrar todo" checked="true"><label class="in-lablab" for="all">Mostrar todo</label>
+                    <input class="in-lab" type="radio" id="prof" name="work-exp" label="Profesional"><label class="in-lablab" for="prof">Profesional</label>
+                    <input class="in-lab" type="radio" id="noprof" name="work-exp" label="No profesional"><label class="in-lablab" for="noprof">No profesional</label>
+                </form>
 
                 <br>
 
-                <p> Hola, soy Samuel (aunque ya lo sabes). Nací en Chile, en una pequeña comuna llamada "El Monte" ubicada en la Región Metropolitana. Y no! Aunque puedas pensar es en la cima de un "Monte", esta es una
-                    comuna aparentemente igual a todas... aunque (spoiler) no es asi. Creci con mis padres hasta los 6-7 años para luego mudarme a "San Bernardo" al sur del Gran Santiago. Pase toda mi vida en este lugar;
-                    crecí, me desarrolle y aprendí lo que todo joven vive. Ya sabes. Lo que todo humano inexperto y dependeniente vive. Finalice mis estudios secundarios a los 18 en el 2014 y sentí que debía conocer y experimentar
-                    el mundo a tráves de mis ojos, decidiendo por aquel entonces, trabajar. 
-                </p>
+                <p>Traba</p>
                 
-                <p>
-                    CineHoyts (actualmente Cinepolis) fue mi primer trabajo. Comencé como "Staff"; los que te venden entradas, palomitas o limpian las salas. Si, yo era parte de ellos. Un Staff.
-                    Era un trabajo divertido, donde aprendí sobre el trabajo en equipo, 
-                </p>
+                <div id="timeline" style="margin:0;width:98vw;height:20px;background-color: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;;"; >
+                    
+                    <div class="years">
 
-                <p>
-                    ¿Qué te puedo decir de mi? Pues, 
-                    busco oportunidades que impacten en mi desarrollo profesional. Soy una 
-                    persona con grandes aspiraciones hacia el futuro. Poseo 
-                    experiencia trabajando en operaciones junto a personas 
-                    multidisciplinarias, como también en tareas administrativas, 
-                    aportando no solo con las competencias que requiere el cargo sino 
-                    también impactando con gran entusiasmo en el desarrollo de las 
-                    labores que se dan junto al equipo, permitiendo a su vez, aprender 
-                    siempre algo nuevo en el proceso.</p>
-                </p>
+                    </div>
+
+
+                    <div class="card cardup" style="position: absolute;">
+                        <div class="hd-card"> <h3>Empresa</h3> <h3></h3></div>
+                    </div>
+
+                </div>
+
             </div>
                         
 
@@ -188,7 +187,7 @@
     </footer>
 
 
-    <script type="module" src="firebase.js"></script>
+    <script type="module" src="src/index.js"></script>
 
     <script>
         const iconNav = document.getElementsByClassName("bi")
