@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
       ].filter(feature => typeof app[feature] === 'function');
       loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
 
-        const str = app.getStorage()
+        const str = app.getStorage
         console.debug(str)
 
     } catch (e) {
