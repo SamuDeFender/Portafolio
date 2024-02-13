@@ -22,7 +22,12 @@ body{background-color: rgb(243, 243, 243);}
         display: flex;
         flex-direction: column;
         align-items: center;
+        text-align: center;
     }
+
+    #socialnetwork .bi {font-size: 42px;}
+    #socialnetwork {margin-top: 30px;}
+
 
     #nav .bi{font-size: 24px}
     #nav li{font-size: 0px;}
@@ -243,90 +248,184 @@ body{background-color: rgb(243, 243, 243);}
 #bd-sections h3{font-family: 'Roboto', 'sans serif'; font-weight: 900; font-size: 20px; margin: 0;}
 #bd-sections h4{font-family: 'Roboto', 'sans serif'; font-weight: 300; font-size: 16px; margin:0}
 
+
+/* Configuraciones contenedor del timeline */
 #timeline{
     width: 100%;
-    height: 750px;
+    height: 250px;
     position: relative;
+    background-color: rgb(255, 255, 255, 0);
+    /* overflow-x: hidden; */
     /* overflow: hidden; */
 }
 
-#timeline ul{
-    list-style: none;
-    height: 100%;
-    justify-content:space-evenly;
-    gap:10px;
-    padding: 0;
+#timeline * {font-family: 'Roboto', sans-serif}
+
+/* Configuraciones timeline*/
+/* Generalidad */
+#timeline #line {
+    border-block: 3px solid rgb(201, 201, 201) ;
+    height: 0px;
+    width: 90%;   
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%);
+    padding-inline: 20px;
     
+    position: absolute;
+
     display: flex;
     flex-direction: row;
-    align-items: center;
+    justify-content: space-between;
 }
 
-#timeline ul li {
-    width: 30%;
-    height: 40%;
-    
-    background-color: #fff;
-    box-shadow: 1px 1px 25px #0000002c;
-    border-radius: 10px;
-    max-height: 45%;
 
-    /* overflow: hidden; */
-    display: flex;
-    flex-direction: column;
-
-    position: relative;
-}
-
-/* #timeline ul li .circle {background-color: aqua; height: 50px; width: 50px; position: absolute; align-self: center;transform: translateY(-50%);border-radius: 50%;} */
-
-#timeline ul li .cdata{height:100%; overflow: hidden; padding: 15px 20px;}
-/* #timeline ul li .res{overflow: hidden;} */
-
-#timeline ul li .cfooter{
+#timeline #line #glowline {
+    content:'';
+    border-block: 1px solid rgb(13, 184, 64);
     position: absolute;
-    background-image: linear-gradient(to bottom, rgba(228, 228, 228, 0) 0%,  rgb(255, 255, 255,75%) 10%, rgb(255, 255, 255) 100%);
-    border-radius: 0 0 10px 10px;
-    padding: 10px 20px;
-    bottom: 0px;
-    left: 0;
-
-    text-align: center;
-
-    a{
-        transition: all .2s;
-        transition-timing-function: ease-in-out;
-
-        font-family: 'Roboto', sans-serif;
-        font-weight: 500;
-        text-decoration: none;
-        color: #183a29;
-    }
-}
-
-#timeline ul li .cfooter a:hover{font-size: 105%}
-
-
-#timeline ul li:nth-child(odd) {transform: translateY(-70%);
-    .circle {background-color: rgb(255, 255, 255); height: 30px; width: 30px; position: absolute; bottom: 0px; align-self: center; transform: translateY(250%);border-radius: 50%;border: 3px solid rgb(151, 151, 151); }; z-index: 2; }
-#timeline ul li:nth-child(even){transform: translateY(70%);
-    .circle {background-color: rgb(255, 255, 255); height: 30px; width: 30px; position: absolute; align-self: center;transform: translateY(-250%);border-radius: 50%; border: 3px solid rgb(151, 151, 151);} z-index: 2;
-    .circle::after{ content: ''; width: 50px; height: 50px; background-color: red;transform: translateY(-250%);}
-}
-
-
-
-#timeline ul::after{
-    position: absolute;
-    content:' ';
-    height: 10px;
     width: 100%;
-    background-color: #b3b3b3;
-    align-self: center;
-    border-radius: 5px;
+    height: 1px;
+    transform: translateY(-50%);
+    z-index: -1;
+    opacity: 0;
+
+    transition: opacity .3s;
 }
 
-/* #timeline ul li .circle{width: 100px; height: 100px; background-color: aqua; } */
+#timeline #line:has(.circle:hover) #glowline { opacity: 1;transition: opacity .3s;}
+#timeline #line:has(.circle) #glowline {transition: opacity .3s; transition-timing-function: ease-in-out; transition-delay: .3s;}
+
+
+#timeline #line:last-child {padding-right: 100px;}
+
+
+/* Configuraciones años (años trabajados) - CIRCULOS*/
+#timeline #line > .circle {
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(185, 185, 185);
+    aspect-ratio: 1/1;
+    height: 20px;
+    width: auto;
+    transform: translateY(-50%);
+    margin: 0;
+    border-radius: 50%;
+}
+
+
+
+#timeline #line > .circle::before {
+    content: attr(year);
+    position: absolute;
+    transform: translate(-27%, -150%);
+    margin: 0; padding: 0;
+    font-weight: 700;
+}
+
+/* CIRCULOS EFECTOS Y ANIMACIONES CIRCULOS Y CARDVIEW*/
+#timeline #line .cfooter a{text-decoration: none;font-weight: 700;}
+#timeline #line > div {transition: background-color .3s; transition-timing-function: ease-in-out; transition-delay: .3s;}
+#timeline #line > div:hover {background-color: #28A061; transition-delay: .0s;}
+#timeline #line div:hover .card {visibility: visible; opacity: 1; top:50px; transition-delay: .0s; display:inherit;}
+
+#timeline #line .cardview::before {
+    content:'';
+    position: absolute;
+    transform: translate(-50%, -80%) rotate(180deg);
+    width: 50px;
+    height: 20px;
+    /* background: url(https://goo.gl/BeSyyD); */
+
+    background-color: #af3030;
+    clip-path: polygon(50% 0, 0 100%, 100% 100%);
+}
+
+#timeline #line .card{
+    position: absolute;
+    transition: top .3s, opacity .1s, visibility .5s;
+    transition-timing-function: ease-in-out;
+    transition-delay: .3s;
+    
+    top: 40px;
+    width: 500px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    /* display:none; */
+}
+
+#timeline #line .circle:nth-child(n+4) .card { transform: translateX(-80%);}
+
+
+#timeline #line .card ul {
+    position: absolute;
+    list-style-type: none;
+    list-style: none;
+    margin: 0;
+    padding-inline-start: 0;
+    justify-content: center;
+    z-index: 2;
+
+    aspect-ratio: 2/1;
+    height: auto;
+    width: 100px;
+
+    display:flex;
+    flex-direction: row;
+    gap: 5px;
+
+    align-items: center;
+
+    top: 10px;
+    right: 20px;
+}
+
+#timeline #line .card ul li:hover {cursor: pointer;}
+
+#timeline #line .card ul li {
+    border: 1px solid #066132;
+    text-align: center;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+
+    width: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* #timeline #line .card ul li {
+} */
+
+#timeline #line .card .active {
+    background-color: #066132;
+    color: white;
+    font-weight: 900;
+}
+
+#timeline #line .cardview {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    max-height: 200px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 25px #0000002c;
+
+    background-color: rgb(255, 255, 255,.75);
+    backdrop-filter: blur(1px);
+}
+
+#timeline #line .cdata {padding: 20px;}
+#timeline #line .cfooter {
+    font-weight: 300;
+    position: absolute;
+    bottom: 0px; margin:0; padding: 20px;
+    text-align: center;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%,  rgb(255, 255, 255,75%) 10%, rgb(255, 255, 255) 100%);}
 
 
 

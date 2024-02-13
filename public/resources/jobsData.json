@@ -1,0 +1,107 @@
+{
+    "Profesional": {
+      "2023": [
+        {
+          "Company": "CencoSud Shopping S.A",
+          "DateSta": "2023-01-10T00:00:00.000Z",
+          "DateEnd": "2023-05-12T00:00:00.000Z",
+          "Details": {
+            "1": {
+              "Position": "Práctica profesional – Eficiencia Operacional",
+              "Abstract": "Como practicante en CencoSud Shopping enfrenté múltiples desafíos a nivel profesional y personal. A nivel profesional, requirió los conocimientos especializados en el manejo de datos para la transformación de estos en información clave para la toma de decisiones. En términos personales, implico el desarrollo de las capacidades comunicativas en la coordinación y alineación entre las distintas áreas de la división y, principalmente, en conocer el negocio y el modus operandi de la empresa en conjunto a la implementación de nuevos reportes y KPIs. Los aportes realizados en la práctica suponen una mejora en los procesos del área, agregando valor en la gestión de los cuales se destacan <br>Reporte de liberaciones de Órdenes de Compra</br><br>Reporte de Reembolsos y Siniestros</br> y <br> Reporte de presupuesto e imputaciones directas</br>. En general, las funciones realizadas fueron variadas, pero principalmente enfocadas en reportes. A continuación, se describen las tareas encomendadas por el líder de EFOP:",
+              "Functions": [
+                "• Elaboración y/o mantención de reportes y KPIs existentes en el área.",
+                "• Apoyo general a las necesidades administrativas del equipo",
+                "   o Apoyo en la gestión de Recepción de Mercadería (ROC).",
+                "   o Atención a proveedores.",
+                "   o Recepción de casos de reembolsos gestionando la creación de clientes en SAP y posterior contabilización.",
+                "• Seguimiento en la creación de OC."
+              ]
+            }
+          }
+        },
+        {
+          "Company": "Universidad de Valparaíso",
+          "DateSta": "2023-08-01T00:00:00.000Z",
+          "DateEnd": "2023-12-21T00:00:00.000Z",
+          "Details": {
+            "1": {
+              "Position": "Ayudante de Gestión de Operaciones I",
+              "Abstract": "Profesor auxiliar complementando y ejercitando temario de cátedra.",
+              "Functions": [
+                "• Diseño de procesos.",
+                "• Pronósticos/previsión.",
+                "   o Análisis de proyección con múltiples métodos (MMS&#44 MMP&#44 SES&#44 SED&#44 Regresión Lineal).",
+                "   o Análisis de ruido blanco y sensibilidad.",
+                "• Gestión de proyectos.",
+                "   o Carta Gantt.",
+                "   o CPM (Método de Camino Critico).",
+                "   o PERT (Técnica de Evaluación y Revisión deProgramas).",
+                "• Capacidad y Localización.",
+                "• Distribución de instalaciones"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "NonProfesional": {
+      "2015": [
+        {
+          "Company": "Cine Hoyts SPA",
+          "DateSta": "2015-05-10T00:00:00.000Z",
+          "DateEnd": "2017-10-15T00:00:00.000Z",
+          "Details": {
+            "1": {
+              "Position": "Staff",
+              "Abstract": "Primer trabajo formal y experiencia laboral con modalidad part time de 30 hrs. Ingresé como STAFF pasando por dos areas principalmente; piso y confiteria. El primero era la mantención y limpieza de las salas&#44 baños y accesos principalmente. Luego de unas semanas ingresé al area de confitería donde desempeñe mis labores la mayor parte del tiempo apoyando en la venta de alimentos y bebestibles a los clientes.<br>En esta ultima area, desarrolle habilidades de venta y atención al cliente, entregando una atención de primera.",
+              "Functions": [
+                "• Encargado de prestar asistencia en la operación diaria del cine.",
+                "• Limpieza de salas&#44 mantención del orden y aseo en lobby&#44 venta de concesiones&#44 venta de entradas."
+              ]
+            },
+            "2": {
+              "Position": "Auxiliar de Bodega",
+              "Abstract": "Luego de unos meses trabajando como staff part time de 30 hrs, di el siguiente paso en la empresa aceptando un puesto full time como Auxiliar de Bodega, apoyando principalmente a las areas comprendidas por confiteria y piso; en el caso del primero, proporcionando oportunamente los insumos y confites necesarios para el correcto funcionamiento y desplante del area. Por otro lado, a piso se brindaban los insumos requeridos para la limpieza y mantención de las salas y pasillos del lugar.",
+              "Functions": [
+                "• Abastecimiento de bodegas internas; general y de transición.",
+                "• Abastecer con insumos y/o materiales necesarios para el personal de concesiones.",
+                "• Gestionar pedidos a proveedores&#44 recibir y almacenar.",
+                "• Uso de ERP ORACLE PeopleSoft para generar Ordenes de Compras."
+              ]
+            }
+          }
+        }
+      ],
+      "2018": [
+        {
+          "Company": "Don Quijote Empanadas SA",
+          "DateSta": "2018-01-15T00:00:00.000Z",
+          "DateEnd": "2022-11-25T00:00:00.000Z",
+          "Details": {
+            "1": {
+              "Position": "Cajero PART TIME FDS",
+              "Abstract": "Como cajero part time de fin de semana desempeñe funciones propias del cargo, siendo mi segunda experiencia con clientes (ahora en el sector alimenticio). Pude desarrollar habilidades blandas y el trato con los clientes, lo que a menudo era un desafio. El trabajo en el equipo y una buena comunicación era indispensable.",
+              "Functions": [
+                "• Encargado de tomar pedidos de caja",
+                "• Asistir a cliente en la compra al detalle y mayor de productos",
+                "• Reponer vitrinas con insumos y bebestibles."
+              ]
+            },
+            "2": {
+              "Position": "Supervisor de Operaciones PART TIME FDS",
+              "Abstract": "Encargado de las operaciones de fin de semana del local, me encargaba de todas las areas operativas de la empresa; desde producción en la elaboración y ensamble de los productos, horneado y exhibición, hasta la preparación y entrega de los pedidos en mesón. El servicio al cliente es importante para mi, por lo que cada atención era importante y personalizada hasta cierto grado, asesorando y orientando a los clientes. No obstante, bajo una misión de mejora continua, se trabajaba con el equipo proporcionando costantemente feedback y asesoramiento al equipo con el fin de mejorar el servicio y los procedimientos de las labores cotidianas.",
+              "Functions": [
+                "• Organizar al equipo de trabajo de fin de semana; horarios&#44 colaciones y/o solicitudes extraordinarias.",
+                "• Entrega de productos (vitrina) a cajeros y abastecimiento de materias primas/insumos a producción comprendida por Panadería (masas)&#44 área de ensamblaje y maestro de cocina (elaboración de pino).",
+                "• Atención al cliente en caso de reclamos y/o sugerencias.",
+                "• Verificar y controlar el cumplimiento de los estándares de calidad en la producción y entrega del producto.",
+                "• Recibir proveedores y administrar bodega (entradas y salidas).",
+                "• Apoyo general en las distintas áreas (desde producción&#44 mesón y cajas)."
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
