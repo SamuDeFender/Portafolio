@@ -221,7 +221,9 @@ body{background-color: rgb(243, 243, 243);}
 /* Secciones de Body */
 /* ---------------------------------------------------------- */
 #bd-sections{display: flex; flex-direction: column; max-width: 100vw;}
-
+#bd-sections section:nth-child(odd){
+    background-color: #ffffff;
+}
 #bd-sections h2{font-family: 'Roboto', 'sans serif'; font-weight: 900;}
 #bd-sections p{font-family: 'Roboto', 'sans serif';font-weight: 300;}
 #bd-sections p {margin-block: 10px; line-height: 140%; width: auto;}
@@ -236,7 +238,6 @@ body{background-color: rgb(243, 243, 243);}
     flex-direction: column;
     align-items: center;
 }
-
 
 #him {
     background-color: white;
@@ -259,7 +260,33 @@ body{background-color: rgb(243, 243, 243);}
     /* overflow: hidden; */
 }
 
-#timeline * {font-family: 'Roboto', sans-serif}
+#timeline > h3 {
+    font-weight: 100;
+    scale: 1rem;
+    position: absolute;
+    width: max-content;
+    left: 50%;
+    top:10%;
+    transform: translateX(-50%);
+    animation: glowBounce infinite;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes glowBounce {
+    0% {
+        scale: 1.4rem;
+    }
+    50% {
+        scale: 1.5rem;
+    }
+    100% {
+        scale:1.4rem
+    }
+    
+}
+
+#timeline * {font-family: 'Roboto', sans-serif;}
 
 /* Configuraciones timeline*/
 /* Generalidad */
@@ -284,17 +311,17 @@ body{background-color: rgb(243, 243, 243);}
     content:'';
     border-block: 1px solid rgb(13, 184, 64);
     position: absolute;
-    width: 100%;
+    width: 1px;
     height: 1px;
     transform: translateY(-50%);
     z-index: -1;
     opacity: 0;
 
-    transition: opacity .3s;
+    transition: opacity .3s, width 2s;
 }
 
-#timeline #line:has(.circle:hover) #glowline { opacity: 1;transition: opacity .3s;}
-#timeline #line:has(.circle) #glowline {transition: opacity .3s; transition-timing-function: ease-in-out; transition-delay: .3s;}
+#timeline #line:has(.circle:hover) #glowline { opacity: 1; transition: opacity .3s, width 1s;}
+#timeline #line:has(.circle) #glowline {transition: opacity 1s, width .3s;width:0%; transition-timing-function: ease-in-out; transition-delay: .3s;}
 
 
 #timeline #line:last-child {padding-right: 100px;}
@@ -326,7 +353,7 @@ body{background-color: rgb(243, 243, 243);}
 /* CIRCULOS EFECTOS Y ANIMACIONES CIRCULOS Y CARDVIEW*/
 #timeline #line .cfooter a{text-decoration: none;font-weight: 700;}
 #timeline #line > div {transition: background-color .3s; transition-timing-function: ease-in-out; transition-delay: .3s;}
-#timeline #line > div:hover {background-color: #28A061; transition-delay: .0s;}
+#timeline #line > div:hover {background-color:#68d499; border-color: #28A061; transition-delay: .0s;}
 #timeline #line div:hover .card {visibility: visible; opacity: 1; top:50px; transition-delay: .0s; display:inherit;}
 
 #timeline #line .cardview::before {
@@ -335,7 +362,6 @@ body{background-color: rgb(243, 243, 243);}
     transform: translate(-50%, -80%) rotate(180deg);
     width: 50px;
     height: 20px;
-    /* background: url(https://goo.gl/BeSyyD); */
 
     background-color: #af3030;
     clip-path: polygon(50% 0, 0 100%, 100% 100%);
@@ -417,6 +443,9 @@ body{background-color: rgb(243, 243, 243);}
 
     background-color: rgb(255, 255, 255,.75);
     backdrop-filter: blur(1px);
+
+    transition: height 1s;
+    transition-timing-function: ease-in-out;
 }
 
 #timeline #line .cdata {padding: 20px;}
@@ -433,6 +462,7 @@ body{background-color: rgb(243, 243, 243);}
 /* Footer */
 /* ---------------------------------------------------------- */
 
+footer{ box-shadow: 0px -5px 48px -24px rgba(0,0,0,0.75);}
 footer h3{font-family: 'Roboto', 'sans serif'; font-weight: 500;}
 footer p{font-family: 'Roboto', 'sans serif';font-weight: 100;}
 
