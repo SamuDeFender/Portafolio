@@ -102,6 +102,22 @@
             }
           }
         }
+      ],
+      "2023": [
+          {
+            "Company": "Hipermercados Tottus SA",
+            "DateSta": "2023-10-15T00:00:00.000Z",
+            "DateEnd": "2024-02-28T00:00:00.000Z",
+            "Details":  {
+              "1":{
+                "Position": "Operario PT20HRS - Reponedor",
+                "Abstract": "Como reponedor de fin de semanas, trabaje en sala sacando productos de bodega a pasillos. Si bien mi rol era apoyar a todo el equipo, el area principal de reposición fue no perecibles.",
+                "Functions": [
+                  "• Reposición de productos en sala."
+                ]
+              }
+            }
+          }
       ]
     }
   }

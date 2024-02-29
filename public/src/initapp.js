@@ -3,6 +3,19 @@
 // ----------------------------------------------------------------------
 var ydt = {}
 
+const getParent = (element, cls) => {
+    if (element && element.parentElement) {
+        const parentClassName = element.parentElement.className;
+        if (parentClassName === cls) {
+            // console.log(element.parentElement)
+            return element.parentElement; // Found it
+        }
+        return getParent(element.parentElement, cls)
+    } else {
+        return false; // No parent with such a className
+    }
+}
+
 
 // 1 > Lectura de JSON con la información
 function readJobsJSON() {
@@ -32,13 +45,18 @@ function createDataStructure(jData){
     const template = document.getElementById("tST").content
     const alljobs = [].concat(profdata, nonprofdata)
 
+    // console.log(alljobs)
     
     for(var i in alljobs){
         for(let key in alljobs[i]){
-            ydt[key] = alljobs[i][key]
+            if ( !(key in ydt)) {
+                ydt[key] = alljobs[i][key]
+            } else {
+                ydt[key] = [].concat(...ydt[key],...alljobs[i][key])
+            }
         }
     }
-
+    
 
     for(var key in ydt){
         
@@ -50,7 +68,7 @@ function createDataStructure(jData){
                 li.textContent = j
                 ul.appendChild(li)
             }
-            template.querySelector(".card").appendChild(ul)
+            template.querySelector(".card .cardview .cdata div").appendChild(ul)
         }
 
         template.querySelector(".circle").setAttribute("year",key)
@@ -74,7 +92,7 @@ function createDataStructure(jData){
             }
 
             // 2.2
-            updateData(Number(this.textContent), this.parentNode.parentNode.parentNode.getAttribute("year"))
+            updateData(Number(this.textContent),getParent(this,"circle").getAttribute("year") )
             this.setAttribute("class","active")
         }
     }
