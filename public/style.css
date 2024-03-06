@@ -17,7 +17,7 @@ body{background-color: rgb(243, 243, 243);}
 /* Header de Body */
 /* ---------------------------------------------------------- */
 
-@media  screen and (max-width: 964px) {
+@media  screen and (max-width: 1034px) {
     #intro-text, #intro-subtext{
         display: flex;
         flex-direction: column;
@@ -32,6 +32,12 @@ body{background-color: rgb(243, 243, 243);}
     #nav .bi{font-size: 24px}
     #nav li{font-size: 0px;}
     #nav i{visibility: visible;}
+
+    .in-lablab::after{content: attr(txtShort);width: 100%;}
+    .in-lablab::before{display: none;}
+        /* color: #ffffff; */
+
+    .card{ width: 80vw !important; left: 0px;}
 }
 
 
@@ -221,12 +227,13 @@ body{background-color: rgb(243, 243, 243);}
 /* Secciones de Body */
 /* ---------------------------------------------------------- */
 #bd-sections{display: flex; flex-direction: column; max-width: 100vw;}
+#bd-sections > section {padding-inline: 10vw;}
 #bd-sections section:nth-child(odd){
     background-color: #ffffff;
 }
 
-#bd-sections h2{font-family: 'Roboto', 'sans serif'; font-weight: 900;}
-#bd-sections p{font-family: 'Roboto', 'sans serif';font-weight: 300;}
+#bd-sections h2{font-family: 'Dosis', sans-serif; font-weight: 900; padding-inline:20px; padding-block: 5px; background-color: #76befa; width: max-content; color: #063861; border-radius: 20px;}
+#bd-sections p{font-family: 'Roboto', sans-serif;font-weight: 300;}
 #bd-sections p {margin-block: 10px; line-height: 140%; width: auto;}
 
 .bd div{max-width: 1000px; width: 100%;}
@@ -254,23 +261,50 @@ body{background-color: rgb(243, 243, 243);}
 /* Configuraciones contenedor del timeline */
 #timeline{
     width: 100%;
-    height: 250px;
+    height: auto;
     position: relative;
-    background-color: rgb(255, 255, 255, 0);
+    background-color: rgba(255, 255, 255, 0);
+    
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    /* justify-content: center; */
+    gap:100px;
     /* overflow-x: hidden; */
     /* overflow: hidden; */
 }
+
+#timeline #line {
+    border-block: 3px solid rgb(201, 201, 201) ;
+
+    /* background-color: white; */
+
+    /* height: 500px; */
+    height: 0px;
+
+    width: 90%;   
+
+    padding-inline: 20px;
+    
+    position: relative;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
 
 #timeline > h3 {
     font-family: "Dosis", sans-serif;
     font-weight: 300;
     scale: 100%;
-    
-    position: absolute;
     width: max-content;
+
+    /* position: absolute; */
     left: 50%;
     top:0%;
-    transform: translateX(-50%);
+    /* transform: translateX(-50%); */
     
     background-color: #066132;
     color: white;
@@ -278,7 +312,7 @@ body{background-color: rgb(243, 243, 243);}
     padding-inline: 20px;
     border-radius: 10px;
     text-transform: uppercase;
-}
+}   
 
 #timeline > h3 span {font-family: "Dosis", sans-serif; font-weight: 600;}
 #timeline * {font-family: 'Roboto', sans-serif;}
@@ -287,21 +321,6 @@ body{background-color: rgb(243, 243, 243);}
 /* Generalidad */
 
 
-#timeline #line {
-    border-block: 3px solid rgb(201, 201, 201) ;
-    height: 0px;
-    width: 90%;   
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%);
-    padding-inline: 20px;
-    
-    position: absolute;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
 
 
 #timeline #line #glowline {
@@ -311,7 +330,7 @@ body{background-color: rgb(243, 243, 243);}
     width: 1px;
     height: 1px;
     transform: translateY(-50%);
-    z-index: -1;
+    z-index: 0;
     opacity: 0;
 
     transition: opacity .3s, width 2s;
@@ -320,24 +339,39 @@ body{background-color: rgb(243, 243, 243);}
 #timeline #line:has(.circle:hover) #glowline { opacity: 1; transition: opacity .3s, width 1s;}
 #timeline #line:has(.circle) #glowline {transition: opacity 1s, width .3s;width:0%; transition-timing-function: ease-in-out; transition-delay: .3s;}
 
-
-#timeline #line:last-child {padding-right: 100px;}
-
-
 /* Configuraciones años (años trabajados) - CIRCULOS*/
 #timeline #line > .circle {
     position: relative;
     background-color: rgb(255, 255, 255);
-    border: 2px solid rgb(185, 185, 185);
     aspect-ratio: 1/1;
     height: 20px;
     width: auto;
     transform: translateY(-50%);
     margin: 0;
     border-radius: 50%;
+
+    opacity: 100%;
+    transition: opacity .5s;
 }
 
+#timeline #line > .circle {
+    animation: fadein-loader;
+    animation-duration: 1s;
+}
 
+@keyframes fadein-loader {
+    0% {opacity: 0;} 100% {opacity: 1;}
+}
+
+#timeline #line > .circle[typeJob="noprof"] {border: 2px solid rgb(9, 167, 106); background-color: rgb(230, 255, 245);}
+#timeline #line > .circle[typeJob="prof"] {border: 2px solid rgb(9, 104, 167);background-color: rgb(207, 236, 255)}
+#timeline #line > .circle[typeJob="mix"] {
+    border: 2px solid transparent;
+    background-image: linear-gradient(white, white), 
+                    linear-gradient(90deg, rgb(9, 167, 106) 50%, rgb(9, 104, 167) 50%);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
 
 #timeline #line > .circle::before {
     content: attr(year);
@@ -349,29 +383,21 @@ body{background-color: rgb(243, 243, 243);}
 
 /* CIRCULOS EFECTOS Y ANIMACIONES CIRCULOS Y CARDVIEW*/
 #timeline #line .cfooter a{text-decoration: none;font-weight: 700;}
-#timeline #line > div {transition: background-color .3s; transition-timing-function: ease-in-out; transition-delay: .3s;}
-#timeline #line > div:hover {background-color:#68d499; border-color: #28A061; transition-delay: .0s;}
-#timeline #line div:hover .card {visibility: visible; opacity: 1; top:50px; transition-delay: .0s; display:inherit;}
-
-#timeline #line .cardview::before {
-    content:'';
-    position: absolute;
-    transform: translate(-50%, -80%) rotate(180deg);
-    width: 50px;
-    height: 20px;
-
-    background-color: #af3030;
-    clip-path: polygon(50% 0, 0 100%, 100% 100%);
-}
+#timeline #line > .circle {transition: background-color .3s; transition-timing-function: ease-in-out; transition-delay: .3s;}
+#timeline #line > .circle:hover {background-color:#68d499; border-color: #28A061; transition-delay: .0s;}
+#timeline #line .circle:hover .card {visibility: visible; opacity: 1; top:50px; transition-delay: .0s; display:inherit;}
 
 #timeline #line .card{
-    position: absolute;
+    position: fixed;
     transition: top .3s, opacity .1s, visibility .5s;
     transition-timing-function: ease-in-out;
     transition-delay: .3s;
     
     top: 40px;
-    width: 500px;
+    transform: translateX(-50%);
+    width: 50vw;
+    max-width: 500px;
+    
 
     opacity: 0;
     visibility: hidden;
@@ -379,8 +405,23 @@ body{background-color: rgb(243, 243, 243);}
     /* display:none; */
 }
 
-#timeline #line .circle:nth-child(n+4) .card { transform: translateX(-80%);}
 
+#timeline #line .card ul li:hover {cursor: pointer;}
+
+#timeline #line .card ul li {
+    text-align: center;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+
+    width: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    transition: background-color 150ms, color 150ms;
+    transition-timing-function: ease-in-out;
+}
 
 #timeline #line .card ul {
     /* position: absolute; */
@@ -408,29 +449,15 @@ body{background-color: rgb(243, 243, 243);}
     right: 20px;
 }
 
-#timeline #line .card ul li:hover {cursor: pointer;}
-
-#timeline #line .card ul li {
-    border: 1px solid #066132;
-    text-align: center;
-    border-radius: 50%;
-    aspect-ratio: 1/1;
-
-    width: 30px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-
-/* #timeline #line .card ul li {
-} */
-
-#timeline #line .card .active {
-    background-color: #066132;
-    color: white;
+#timeline #line .card ul li[type="noprof"] {border: 1px solid #066132;}
+#timeline #line .card ul li[type="prof"] {border: 1px solid #063861;}
+#timeline #line .card ul li[type="noprof"].active  {background-color: #066132; color: white;}
+#timeline #line .card ul li[type="prof"].active {background-color: #063861;color: white;}
+#timeline #line .card li .active {
     font-weight: 900;
+
+    transition: all 150ms;
+    transition-timing-function: ease-in-out;
 }
 
 #timeline #line .card .cardview .cdata span {
@@ -441,11 +468,10 @@ body{background-color: rgb(243, 243, 243);}
 }
 
 #timeline #line .cardview {
-    position: absolute;
     width: 100%;
     height: auto;
-    overflow: hidden;
     max-height: 200px;
+    overflow: hidden;
     border-radius: 10px;
     box-shadow: 1px 1px 25px #0000002c;
 
@@ -530,11 +556,31 @@ form{
 }
 
 
+/* #typeJobs form {} */
 .in-lab{display: none;}    
-.in-lablab{padding-inline: 20px; padding-block: 10px;overflow: hidden; transition: background-color 0.2s; width: max-content;}
-.in-lablab:not(:last-of-type){
-    border-right: 1px solid #e6e6e6;
+
+.in-lablab::before {content: attr(txtlarge);}
+.in-lablab{
+    padding-inline: 20px;
+    padding-block: 10px;
+    /* width: 100%; */
+    overflow:hidden;
+    transition: background-color 0.2s;
+    
+    display: flex;
+    text-align: center;
+    align-items: center;
+
+    flex-wrap: wrap;
 }
+
+.in-lablab:not(:last-of-type){border-right: 1px solid #e6e6e6;}
 
 /* .in-lablab{} */
 .in-lab:checked + .in-lablab{background-color:#066132; color: white;}
+
+
+/* SECTION SKILLS - TECNOLOGIAS Y HERRAMIENTAS */
+#skills {}
+#skills img{aspect-ratio: 1/1 ;width: 100px;height: auto; object-fit: cover;border: 1px solid black;}
+

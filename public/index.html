@@ -133,10 +133,10 @@
             <div>
                 <h2 style="margin: 0;">EXPERIENCIA LABORAL</H2>
 
-                <form style="max-width: 100%; width:max-content;">
-                    <input class="in-lab" type="radio" id="all" name="work-exp" label="Mostrar todo" checked="true"><label class="in-lablab" for="all">Mostrar todo</label>
-                    <input class="in-lab" type="radio" id="prof" name="work-exp" label="Profesional"><label class="in-lablab" for="prof">Profesional</label>
-                    <input class="in-lab" type="radio" id="noprof" name="work-exp" label="No profesional"><label class="in-lablab" for="noprof">No profesional</label>
+                <form id="typeJobs" style="max-width: 100%; width:max-content;">
+                    <input class="in-lab" type="radio" id="all" name="work-exp" label="Mostrar todo" checked="true"><label class="in-lablab" for="all" txtLarge="Mostrar Todo" txtShort="Todo"></label>
+                    <input class="in-lab" type="radio" id="prof" name="work-exp" label="Profesional"><label class="in-lablab" for="prof" txtLarge="Profesional" txtShort="Prof"></label>
+                    <input class="in-lab" type="radio" id="noprof" name="work-exp" label="No profesional"><label class="in-lablab" for="noprof" txtLarge="No Profesional" txtShort="No Prof"></label>
                 </form>
 
                 <br>
@@ -149,8 +149,8 @@
 
                         <template id="tST">
                             <div class="circle" year="">
-                                <section class="card">
                                 
+                                <section class="card">
                                     <div class="cardview">
                                         <div class="cdata">
                                             <div>
@@ -159,14 +159,20 @@
                                                     <h4 class="comp"></h4>
                                                 </div>
                                             </div>
+
                                             <p class="res"></p>
                                         </div>
         
                                         <div class="cfooter"><a href="#"></a></div>
                                     </div>
                                 </section>
+
                             </div>
                         </template>
+
+                        <div>
+                            <h2>prueba</h2>
+                        </div>
                     </div>
                 </div>
 
@@ -174,7 +180,20 @@
                         
         </section>
         
-        <section class="bd" id="skills"></section>
+        <section class="bd" id="skills">
+            <div>
+                <h2>TECNOLOGIAS Y HERRAMIENTAS</h2>
+                <div>
+                    <img src="resources/images/svg-src/excel.svg"></i>
+                    <img src="resources/images/svg-src/vba.svg"></i>
+                    <img src="resources/images/svg-src/powerpoint.svg"></i>
+                    <img src="resources/images/svg-src/word.svg"></i>
+                    <img src="resources/images/svg-src/html5.svg"></i>
+                    <img src="resources/images/svg-src/css3.svg"></i>
+                    <img src="resources/images/svg-src/js.svg"></i>
+                </div>
+            </div>
+        </section>
         <section class="bd" id="work"></section>
         <section class="bd" id="know-me"></section>
 
