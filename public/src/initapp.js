@@ -31,7 +31,8 @@ function readJobsJSON() {
             .then((data) => {
                     Json_data = data
                     createDataStructure(Json_data)
-                    // console.log(data)
+                    listenEventsInit()
+                    // console.log(dqata)
                 })
             .catch((error) => 
                    console.error("Unable to fetch data:", error));
@@ -74,8 +75,6 @@ function createDataStructure(jData, tJobs){
         }
     } else {alljobs = jData[tJobs];for(var i in alljobs){ydt[i] = alljobs[i]}} 
 
-    console.log(ydt)
-
     for(var key in ydt){
         let typeJob = ""
         if(ydt[key].length > 1) {
@@ -88,7 +87,6 @@ function createDataStructure(jData, tJobs){
                     li.setAttribute("class","active");
                     typeJob = ydt[key][j].typeJob 
                 } else {
-                    console.log(typeJob)
                     li.setAttribute("class","");
                     if ( !(typeJob === ydt[key][j].typeJob) ) {
                         typeJob = "mix"
@@ -131,6 +129,8 @@ function createDataStructure(jData, tJobs){
     }
     // 2.1
     getDistance()
+    // 2.3
+    listenEvents()
 }
 
 // 2.1 > Configurar distancia de tiempo
@@ -169,13 +169,12 @@ function updateData(item, year) {
     circle.querySelector(".res").textContent = ydt[year][item-1].Details[1].Abstract
 }
 
-function listenEvents(){
+function listenEventsInit(){
     const tJobs = document.querySelector("#typeJobs")
+
     tJobs.addEventListener('click',e => {
         // console.log(e.target.tagName)
         if (e.target.tagName === "INPUT") {
-            // e.target.getAttribute("id")
-            console.log(e.target.tagName)
             var txt = ""
             if (e.target.getAttribute("id") === "prof") {
                 txt = "Profesional"
@@ -188,9 +187,130 @@ function listenEvents(){
             createDataStructure(Json_data, txt)
         }
     })
-}   
+}
 
 
-// Llamada de funciones por iniciar
+function listenEvents(){
+    const rMore = document.querySelectorAll(".circle .cfooter a")
+    rMore.forEach(el => { 
+        el.onclick = function () {
+            const yr = getParent(this,"circle").getAttribute('year')
+            const tJ = getParent(this,"cardview").querySelector('.cdata ul .active')?.getAttribute('type') ?? getParent(this,"circle").getAttribute('typeJob')
+            const index = getParent(this,"cardview").querySelector('.cdata .comp').textContent ?? 0
+            let txt = new String
+
+            if (tJ === 'prof') {txt = 'Profesional'} else {txt = 'NonProfesional'}
+            
+            for(var i = 0; i< Json_data[txt][yr].length;i++ ){
+                if(Json_data[txt][yr][i].Company === index) {
+                    createDetailsStructure(Json_data[txt][yr][i])
+                }
+            }
+            console.log(yr, tJ, index)
+        }
+    })
+}
+
+function createDetailsStructure(JobDetails) {
+    const circle = document.querySelectorAll('.circle')
+    circle.forEach(el => {el.setAttribute('hide',"")})
+
+    const line = document.querySelector("#line")
+    const fType = document.querySelector("#typeJobs")
+    const hTxt = document.querySelector("#timeline").children[0] // cartel "Posicionate en cualquier año..."
+    const cont = document.querySelector('#JobsDetails')
+
+    console.log(document.querySelector("#timeline"))
+
+    fType.style.display = 'none'
+    hTxt.setAttribute('hidden','')
+    line.style.height = "500px" // expande el cuadro para ver el detalle
+
+    cont.removeAttribute('style')
+    cont.querySelector(".Back-to-Main").onclick = function() {
+        line.style.height = "0px"
+        line.style.background = ""
+        fType.style.display = ""
+        hTxt.removeAttribute('hidden')
+        cont.style.display = "none"
+        createDataStructure(Json_data)
+        const nd = meta.querySelector('ul')
+        if( !(nd===null) ) {meta.removeChild(nd)}
+    }
+
+    const meta = cont.querySelector('.Meta')
+    const cantJobs = Object.keys(JobDetails.Details).length
+
+    if (cantJobs>1) {
+        const ul = document.createElement('ul')
+        for(const key in JobDetails.Details) {
+            const li = document.createElement('li')
+            if (key === '1') {li.classList.add('active')}
+            li.textContent = key
+            ul.appendChild(li)
+        }
+
+        ul.addEventListener('click', (el) => {
+            if(el.target.tagName === 'LI') {
+                for(var i=0;i<el.target.parentNode.children.length;i++){
+                    el.target.parentNode.children[i].setAttribute('class','')
+                }
+                el.target.setAttribute('class','active')
+
+                updateDataDetails(JobDetails, el.target.textContent)
+            }
+        })
+        meta.appendChild(ul)
+    }
+
+    updateDataDetails(JobDetails)
+}
+
+
+function updateDataDetails(data, item = 1) {
+    const cont = document.querySelector('#JobsDetails')
+    const imgCont = cont.querySelector('.Images')
+    const fx = cont.querySelector(".Funct-Company h3")
+    const comp = cont.querySelector(".Funct-Company h4")
+    const detData = cont.querySelector(".Details-data .abst")
+    const funct = cont.querySelector(".Details-data .functions")
+    const meta = cont.querySelector('.Meta')
+    const jDate = meta.querySelector('.JobDate')
+    const fDate = meta.querySelector('.FullDate')
+    
+    // Ayuda a setear FullDate de Meta
+    var DStart = new Date(data.DateSta); var DEnd = new Date(data.DateEnd);
+    if (DStart.getFullYear() === DEnd.getFullYear()) {DStart = DStart.toLocaleDateString('es-CL',{month:'short'}); DEnd = DEnd.toLocaleDateString('es-CL',{month:'short',year:'numeric'});}
+    else {DStart = DStart.toLocaleDateString('es-CL',{month:'short',year:'numeric'}); DEnd = DEnd.toLocaleDateString('es-CL',{month:'short',year:'numeric'});}
+    
+    // Ayuda a setear JobDate de Meta
+    var cantJobs = Object.keys(data.Details).length; 
+    var DStart_j = new Date; var DEnd_j = new Date
+    if(cantJobs>1){
+        jDate.removeAttribute('hidden')
+        DStart_j = new Date(data.Details[item].DateSta); DEnd_j = new Date(data.Details[item].DateEnd);
+        if(DStart_j.getFullYear() === DEnd_j.getFullYear()){DStart_j = DStart_j.toLocaleDateString('es-CL',{month:'short'});DEnd_j = DEnd_j.toLocaleDateString('es-CL',{month:'short',year:'numeric'});}
+        else {DStart_j = DStart_j.toLocaleDateString('es-CL',{month:'short',year:'numeric'}); DEnd_j = DEnd_j.toLocaleDateString('es-CL',{month:'short',year:'numeric'})}
+    } else {
+        jDate.setAttribute('hidden','')
+    }
+
+    fx.textContent = data.Details[item].Position
+    comp.textContent = data.Company
+    fDate.textContent = DStart.toUpperCase().replace('.','') + ' - ' + DEnd.toUpperCase()
+    jDate.textContent = DStart_j.toUpperCase().replace('.','') + ' - ' + DEnd_j.toUpperCase()
+    detData.textContent = data.Details[item].Abstract
+    funct.innerHTML = ''; for(var i=0;i<data.Details[item].Functions.length;i++){funct.innerHTML+=`<p>${data.Details[item].Functions[i]}</p>`}
+
+    imgCont.addEventListener('click', el => {
+        if(el.target.tagName === 'IMG') {
+            const imgMain = cont.querySelector('.Image img')
+            imgMain.setAttribute('src',el.target.getAttribute('src'))
+        }
+    })
+
+    console.log(imgCont.childNodes)
+}
+
+
 readJobsJSON()
-listenEvents()

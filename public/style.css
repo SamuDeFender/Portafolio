@@ -5,6 +5,7 @@
 /* html{max-width: 100vw !important; margin: 0 !important} */
 body, ul{ margin: 0  }
 body{background-color: rgb(243, 243, 243);}
+html{scroll-behavior: smooth;}
 
 /* ---------------------------------------------------------- */
 /* ESTADO DE FIREBASE */
@@ -59,19 +60,22 @@ body{background-color: rgb(243, 243, 243);}
 #intro-text h1{font-size: clamp(36px,4.5vw,42px); text-wrap: wrap;}
 #intro-text p{font-size: clamp(28px, 2vw,36px);text-wrap: wrap;}
 
-#introduce-sect button{
+#introduce-sect #intro-button a{
+    display: flex;
+    align-items: center;
+
+    text-decoration: none;
+
     font-family: 'Raleway', sans-serif; 
     font-weight:700; 
     
-     /* margin-inline: 10px; */
-     margin-right: 10px;
+    margin-right: 10px;
     font-size: clamp(12px, 5vw,24px);
     max-height: fit-content;    
     background-color: rgb(255, 255, 255,0);
-    border-color:rgb(40, 160, 97);
     border-radius: 7.5px;
-    border-style:solid;
-    border-width: 3px;
+
+    border: 2px solid rgb(40, 160, 97);
     
     padding-inline:10px;
     padding-block: 5px;
@@ -84,7 +88,7 @@ body{background-color: rgb(243, 243, 243);}
     transition-timing-function: ease-in-out;
 }
 
-#introduce-sect button:hover{
+#introduce-sect #intro-button a:hover{
     background-color: rgb(40, 160, 97);
     color: white;}
 
@@ -133,17 +137,6 @@ body{background-color: rgb(243, 243, 243);}
     flex-wrap: wrap;
 
    justify-content: center;
-}
-
-#intro-button button{
-    width: 230px;
-    justify-content: center;
-    margin-block: 5px;
-}
-
-.intro-cv{
-    display: inline-flex;
-    align-items: center;
 }
 
 .material-symbols-outlined {
@@ -203,8 +196,9 @@ body{background-color: rgb(243, 243, 243);}
 }
 
 
-
-#nav li {padding: 10px; width: max-content; 
+#nav a {
+    text-decoration: none;
+    padding: 10px; width: max-content; 
     font-family: 'Roboto', 'sans serif';
     font-weight: 300;
     transition: background-color 100ms,
@@ -216,7 +210,7 @@ body{background-color: rgb(243, 243, 243);}
     border-right:1px solid #e6e6e6;
 } */
 
-#nav li:hover { 
+#nav a:hover { 
     background-color:#066132;
     color: white;
 
@@ -278,21 +272,93 @@ body{background-color: rgb(243, 243, 243);}
 #timeline #line {
     border-block: 3px solid rgb(201, 201, 201) ;
 
-    /* background-color: white; */
+    background-color: white;
 
     /* height: 500px; */
     height: 0px;
 
     width: 90%;   
-
-    padding-inline: 20px;
+    /* padding: 20px; */
     
     position: relative;
 
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+
+    transition: height .5s ease-in-out;
 }
+
+#line #JobsDetails {
+    padding: 20px;
+
+    display: grid;
+    border: #063861;
+    grid-row: 3;
+    grid-column: 2;
+}
+
+#JobsDetails {  
+    display: grid;
+    grid-template-columns: 1.5fr 2fr;
+    grid-template-rows: 0.3fr 0.7fr 2.7fr 0.6fr;
+    gap: 5px 5px;
+    grid-auto-flow: row dense;
+    grid-template-areas:
+      "Back-to-Main tools"
+      "Image Funct-Company"
+      "Image Details-data"
+      "Images Tecnologies-tags";
+    /* border: 5px solid black; */
+}
+ 
+#JobsDetails>div{
+    display:flex; width: 100%; height: auto; 
+    max-height: min-content;
+    /* background-color:green; */
+     /* border: 1px solid black; */
+     padding-inline: 10px;
+     background-color: #00000009;
+     border-radius: 10px;
+}
+
+
+#JobsDetails h5 {margin: 0px ;padding: 0px 0px 0px 0px;}
+#JobsDetails .Details-data h5 {margin: 0px ;padding-block: 10px;}
+#JobsDetails p {margin: 0px ;padding: 0px 0px 0px 0px;}
+
+.Back-to-Main {scale:1;align-items: center;grid-area: Back-to-Main; transition: scale .5s ease-in-out;}
+.Back-to-Main i:hover{scale:1.2; transform-origin: center; transition: scale .2s ease-in-out}
+
+.Funct-Company {grid-area: Funct-Company;flex-direction: column; justify-content: center;}
+.Funct-Company > div {display:flex; flex-direction: row; justify-content: space-between;}
+
+.Image {grid-area: Image;display:flex; justify-content: center;}
+.Image img {width: 100%; height: auto; object-fit: contain; max-height: 100%;}
+
+.Tecnologies-tags { grid-area: Tecnologies-tags; display: flex;justify-content: center; align-items: center; column-gap: 10px}
+.Tecnologies-tags img{ width: auto;height: 50px; object-fit: cover; filter:grayscale(100%); transition: filter .3s; }
+.Tecnologies-tags img:hover{filter: grayscale(0%); transition: filter .3s;}
+
+.Images { grid-area: Images; display: flex; align-items: center; justify-content: center; column-gap: 7.5px;}
+.Images img{ width: auto; height: 50px; cursor: pointer; object-fit: cover; aspect-ratio: 9/16; transition: all .3s;}
+.Images img:hover{ scale:1.1;transform-origin: center; transition: scale .5s ease-in-out, aspect-ratio .5s ease-in-out; aspect-ratio: 16/9;}
+
+
+.Details-data { grid-area: Details-data; flex-direction:column; overflow-y: hidden; scrollbar-gutter: stable both-edges; padding-block: 10px;}
+.Details-data:hover, .Details-data:active, .Details-data:focus { overflow-y: scroll;}
+.Details-data::-webkit-scrollbar {width: 5px}
+.Details-data::-webkit-scrollbar-thumb {background-color:#e4e4e4; border-radius: 5px;}
+
+.Meta {display: flex;align-items: center;flex-direction: row-reverse;justify-content: space-between;column-gap: 10px;}
+.Meta ul{list-style: none;display:flex; padding:0;width: 100px; justify-content: start; column-gap: 5px;}
+.Meta li{background-color:rgb(255, 255, 255,0); color: #063861; border: 1px solid #063861; border-radius: 50%;aspect-ratio: 1;width: 25px; display: flex; align-items: center; justify-content: center;}
+.Meta li.active {background-color: #063861; color: white;}
+.Meta li:hover {cursor:pointer}
+
+
+.Meta h4{font-size:small !important;}
+
 
 
 #timeline > h3 {
@@ -363,6 +429,16 @@ body{background-color: rgb(243, 243, 243);}
     0% {opacity: 0;} 100% {opacity: 1;}
 }
 
+#timeline #line .circle[hide]{
+    animation: fadeout-loader .2s forwards;
+    animation-iteration-count: 1;
+}
+
+@keyframes fadeout-loader {
+    0%{opacity: 1;} 100%{opacity: 0; display: none;}
+    
+}
+
 #timeline #line > .circle[typeJob="noprof"] {border: 2px solid rgb(9, 167, 106); background-color: rgb(230, 255, 245);}
 #timeline #line > .circle[typeJob="prof"] {border: 2px solid rgb(9, 104, 167);background-color: rgb(207, 236, 255)}
 #timeline #line > .circle[typeJob="mix"] {
@@ -383,7 +459,7 @@ body{background-color: rgb(243, 243, 243);}
 
 /* CIRCULOS EFECTOS Y ANIMACIONES CIRCULOS Y CARDVIEW*/
 #timeline #line .cfooter a{text-decoration: none;font-weight: 700;}
-#timeline #line > .circle {transition: background-color .3s; transition-timing-function: ease-in-out; transition-delay: .3s;}
+#timeline #line > .circle {transition: background-color .3s, display .3s; transition-timing-function: ease-in-out; transition-delay: .3s;}
 #timeline #line > .circle:hover {background-color:#68d499; border-color: #28A061; transition-delay: .0s;}
 #timeline #line .circle:hover .card {visibility: visible; opacity: 1; top:50px; transition-delay: .0s; display:inherit;}
 
