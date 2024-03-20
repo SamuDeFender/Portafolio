@@ -3,6 +3,7 @@
       "2023": [
         {
           "typeJob": "prof",
+          "FolderPath":"resources/images/timeline/CencoSud/",
           "Company": "CencoSud Shopping S.A",
           "DateSta": "2023-01-10T00:00:00.000Z",
           "DateEnd": "2023-05-12T00:00:00.000Z",
@@ -22,13 +23,14 @@
               ],
               "Resources":{
                 "Tecnology": ["excel.svg","vba.svg","powerpoint.svg","sap.svg"],
-                "Images": [""]
+                "Images": ["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg"]
               }
             }
           }
         },
         {
           "typeJob": "prof",
+          "FolderPath":"resources/images/timeline/UV/",
           "Company": "Universidad de Valparaíso",
           "DateSta": "2023-08-01T00:00:00.000Z",
           "DateEnd": "2023-12-21T00:00:00.000Z",
@@ -52,7 +54,7 @@
               ],
               "Resources":{
                 "Tecnology": ["excel.svg"],
-                "Images": [""]
+                "Images": []
               }
             }
           }
@@ -63,6 +65,7 @@
       "2015": [
         {
           "typeJob": "noprof",
+          "FolderPath":"resources/images/timeline/CineHoyts/",
           "Company": "Cine Hoyts SPA",
           "DateSta": "2015-05-10T00:00:00.000Z",
           "DateEnd": "2017-10-15T00:00:00.000Z",
@@ -77,8 +80,8 @@
                 "• Limpieza de salas, mantención del orden y aseo en lobby, venta de concesiones, venta de entradas."
               ],
               "Resources":{
-                "Tecnology": [""],
-                "Images": [""]
+                "Tecnology": [],
+                "Images": ["1.jpg","2.jpg","3.jpg","4.jpg"]
               }
             },
             "2": {
@@ -94,7 +97,7 @@
               ],
               "Resources":{
                 "Tecnology": ["excel.svg"],
-                "Images": [""]
+                "Images": ["5.jpg","6.jpg"]
               }
             }
           }
@@ -103,6 +106,7 @@
       "2018": [
         {
           "typeJob": "noprof",
+          "FolderPath":"resources/images/timeline/DQE/",
           "Company": "Don Quijote Empanadas SA",
           "DateSta": "2018-01-15T00:00:00.000Z",
           "DateEnd": "2022-11-25T00:00:00.000Z",
@@ -119,7 +123,7 @@
               ],
               "Resources":{
                 "Tecnology": ["excel.svg"],
-                "Images": [""]
+                "Images": []
               }
             },
             "2": {
@@ -137,34 +141,35 @@
               ],
               "Resources":{
                 "Tecnology": ["excel.svg"],
-                "Images": [""]
+                "Images": []
               }
             }
           }
         }
       ],
       "2023": [
-          {
-            "typeJob": "noprof",
-            "Company": "Hipermercados Tottus SA",
-            "DateSta": "2023-10-15T00:00:00.000Z",
-            "DateEnd": "2024-02-28T00:00:00.000Z",
-            "Details":  {
-              "1":{
-                "Position": "Operario PT20HRS - Reponedor",
-                "Abstract": "Como reponedor de fin de semanas, trabaje en sala sacando productos de bodega a pasillos. Si bien mi rol era apoyar a todo el equipo, el area principal de reposición fue no perecibles.",
-                "DateSta": null,
-                "DateEnd": null,
-                "Functions": [
-                  "• Reposición de productos en sala."
-                ],
-                "Resources":{
-                  "Tecnology": [""],
-                  "Images": [""]
-                }
+        {
+          "typeJob": "noprof",
+          "FolderPath":"resources/images/timeline/Tottus/",
+          "Company": "Hipermercados Tottus SA",
+          "DateSta": "2023-10-15T00:00:00.000Z",
+          "DateEnd": "2024-02-28T00:00:00.000Z",
+          "Details":  {
+            "1":{
+              "Position": "Operario PT20HRS - Reponedor",
+              "Abstract": "Como reponedor de fin de semanas, trabaje en sala sacando productos de bodega a pasillos. Si bien mi rol era apoyar a todo el equipo, el area principal de reposición fue no perecibles.",
+              "DateSta": null,
+              "DateEnd": null,
+              "Functions": [
+                "• Reposición de productos en sala."
+              ],
+              "Resources":{
+                "Tecnology": [],
+                "Images": []
               }
             }
           }
+        }
       ]
     }
   }

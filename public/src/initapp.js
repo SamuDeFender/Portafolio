@@ -269,7 +269,9 @@ function createDetailsStructure(JobDetails) {
 
 function updateDataDetails(data, item = 1) {
     const cont = document.querySelector('#JobsDetails')
+    const imgMain = cont.querySelector('.Image img')
     const imgCont = cont.querySelector('.Images')
+    const tecCont = cont.querySelector('.Tecnologies-tags')
     const fx = cont.querySelector(".Funct-Company h3")
     const comp = cont.querySelector(".Funct-Company h4")
     const detData = cont.querySelector(".Details-data .abst")
@@ -277,6 +279,7 @@ function updateDataDetails(data, item = 1) {
     const meta = cont.querySelector('.Meta')
     const jDate = meta.querySelector('.JobDate')
     const fDate = meta.querySelector('.FullDate')
+    const fPath = data.FolderPath
     
     // Ayuda a setear FullDate de Meta
     var DStart = new Date(data.DateSta); var DEnd = new Date(data.DateEnd);
@@ -298,18 +301,36 @@ function updateDataDetails(data, item = 1) {
     fx.textContent = data.Details[item].Position
     comp.textContent = data.Company
     fDate.textContent = DStart.toUpperCase().replace('.','') + ' - ' + DEnd.toUpperCase()
-    jDate.textContent = DStart_j.toUpperCase().replace('.','') + ' - ' + DEnd_j.toUpperCase()
+    if (cantJobs > 1) jDate.textContent = DStart_j.toUpperCase().replace('.','') + ' - ' + DEnd_j.toUpperCase()
     detData.textContent = data.Details[item].Abstract
     funct.innerHTML = ''; for(var i=0;i<data.Details[item].Functions.length;i++){funct.innerHTML+=`<p>${data.Details[item].Functions[i]}</p>`}
+    imgMain.src = fPath +'/main.png'
+    
+    imgCont.innerHTML='';
+    console.log(data.Details[item].Resources.Images.length)
+    if (data.Details[item].Resources.Images.length > 0){
+        for(var i=0;i<data.Details[item].Resources.Images.length;i++) {
+            if (data.Details[item].Resources.Images[i] === 'main.png'){ imgMainsrc = fPath + data.Details[item].Resources.Images[i] }
+            const img = document.createElement('img')
+            img.src = fPath + data.Details[item].Resources.Images[i]
+            imgCont.appendChild(img)
+        }
+    } else {imgCont.innerHTML = '<h5>Sin recursos</h5>'; console.log('aqui')}
+    
+    tecCont.innerHTML = '<h5>Tecnologias</h5>';
+    if (data.Details[item].Resources.Tecnology.length > 0){
+        for(var i=0;i<data.Details[item].Resources.Tecnology.length;i++) {
+            const img = document.createElement('img')
+            img.src = `resources/images/svg-src/${data.Details[item].Resources.Tecnology[i]}`
+            tecCont.appendChild(img)
+        }
+    } else {tecCont.innerHTML = '<h5>Sin recursos</h5>'; console.log('aqui')}
 
     imgCont.addEventListener('click', el => {
-        if(el.target.tagName === 'IMG') {
-            const imgMain = cont.querySelector('.Image img')
-            imgMain.setAttribute('src',el.target.getAttribute('src'))
-        }
+        if(el.target.tagName === 'IMG') {imgMain.setAttribute('src',el.target.getAttribute('src'))}
     })
 
-    console.log(imgCont.childNodes)
+    
 }
 
 
